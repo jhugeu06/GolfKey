@@ -254,10 +254,10 @@
         <form
           name="waitlist"
           method="POST"
-          netlify
           data-netlify="true"
           netlify-honeypot="bot-field"
           onsubmit="return validate(this)"
+          action="/merci.html"
         >
           <input type="hidden" name="form-name" value="waitlist" />
           <p style="display: none">
@@ -305,7 +305,7 @@
             />
           </div>
           <div class="full consent">
-            <input id="consent" type="checkbox" required />
+            <input id="consent" name="consent" type="checkbox" required />
             <label for="consent"
               >J’accepte d’être contacté par email au sujet du lancement et des
               informations liées à l’abonnement.</label
