@@ -1,343 +1,742 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GreenKey Golf – Jouez plus, payez moins</title>
-  <meta name="description" content="Un abonnement mensuel à crédits pour jouer sur plusieurs golfs partenaires dans les Hauts-de-France. Moins cher que les green fees à l’unité, plus flexible qu’une cotisation annuelle." />
-  <meta name="theme-color" content="#22c55e" />
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="GreenKey Golf – Jouez plus, payez moins" />
-  <meta property="og:description" content="Un abonnement mensuel à crédits pour jouer sur plusieurs golfs partenaires." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://greenkey.example/" />
-  <meta property="og:image" content="/og.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="favicon.ico" />
-  <style>
-    :root{
-      --bg:#0b1e10;        /* vert très sombre */
-      --brand:#22c55e;     /* vert principal */
-      --brand-2:#16a34a;   /* vert secondaire */
-      --ink:#0f172a;       /* texte foncé */
-      --ink-2:#334155;     /* texte moyen */
-      --paper:#ffffff;     /* blanc */
-      --muted:#f1f5f9;     /* gris clair */
-      --card: #ffffff;
-      --ring: rgba(34,197,94,.3);
-    }
-    html,body{margin:0;padding:0;font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--ink); background:#fff}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:0 24px}
-
-    /* Hero */
-    .hero{position:relative;overflow:hidden;color:#eafff3;background:#0b1e10}
-    .hero::before{$1z-index:1}
-    .hero .media{position:absolute;inset:0;z-index:0}
-    .hero .media video,.hero .media img{width:100%;height:100%;object-fit:cover;object-position:center}
-    .hero .inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:90px 0}
-    @media (max-width: 900px){.hero .inner{grid-template-columns:1fr;padding:60px 0}}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:999px;font-size:12px;letter-spacing:.2px}
-    .badge svg{width:14px;height:14px}
-    h1{font-size: clamp(32px, 5vw, 56px);line-height:1.05;margin:14px 0}
-    .lead{font-size: clamp(16px, 2.2vw, 20px);color:#d7ffe6;max-width:56ch}
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:var(--brand);color:#06230f;font-weight:700;box-shadow: 0 10px 20px rgba(34,197,94,.25);cursor:pointer}
-    .btn.secondary{background:transparent;color:#d7ffe6}
-    .btn:hover{transform:translateY(-1px)}
-    .hero-card{background: rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter: blur(6px);border-radius:16px;padding:20px}
-    .hero-card ul{padding-left:18px;margin:10px 0}
-    .hero-card li{margin:6px 0}
-
-    /* Sections */
-    section{padding:70px 0}
-    h2{font-size: clamp(26px, 4vw, 36px);margin:0 0 16px}
-    .sub{color:var(--ink-2);margin-top:-6px;margin-bottom:24px}
-
-    /* Steps */
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width: 900px){.steps{grid-template-columns:1fr}}
-    .step{background:var(--card);border:1px solid #e2e8f0;border-radius:16px;padding:20px}
-    .step .id{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:var(--brand);font-weight:800;margin-bottom:8px}
-
-    /* Pricing */
-    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width: 1000px){.pricing{grid-template-columns:1fr}}
-    .plan{background:var(--card);border:1px solid #e2e8f0;border-radius:18px;padding:22px;display:flex;flex-direction:column}
-    .plan.highlight{border-color:var(--brand);box-shadow:0 10px 24px rgba(34,197,94,.12)}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;background:var(--muted);border-radius:999px;font-size:12px;color:var(--ink-2);margin-bottom:10px}
-    .price{font-size:34px;font-weight:900;margin:10px 0}
-    .credits{font-size:14px;color:var(--ink-2)}
-    .plan ul{padding-left:18px}
-    .plan li{margin:8px 0}
-    .plan .cta{margin-top:auto}
-
-    /* Advantages */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width: 900px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid #e2e8f0;border-radius:16px;padding:18px}
-
-    /* Signup */
-    .signup{background:linear-gradient(180deg, #f6fff8, #ffffff)}
-    form{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:18px}
-    @media (max-width: 700px){form{grid-template-columns:1fr}}
-    label{font-size:14px;color:var(--ink-2)}
-    input,select{width:100%;padding:12px 12px;border:1px solid #cbd5e1;border-radius:12px;outline:none}
-    input:focus,select:focus{box-shadow:0 0 0 4px var(--ring);border-color:var(--brand)}
-    .full{grid-column:1/-1}
-    .consent{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-2)}
-    .consent input{width:auto;margin-top:2px}
-    .submit{display:flex;gap:10px;flex-wrap:wrap}
-
-    /* Footer */
-    footer{padding:40px 0;border-top:1px solid #e2e8f0;color:var(--ink-2);font-size:14px}
-
-    /* Tiny helper */
-    .note{font-size:12px;color:var(--ink-2)}
-  </style>
-</head>
-<body>
-  <header class="hero">
-    <div class="media" aria-hidden="true">
-      <video autoplay muted loop playsinline poster="media/hero-golf.jpg" id="heroVideo">
-        <source src="media/hero-golf.webm" type="video/webm" />
-        <source src="media/hero-golf.mp4" type="video/mp4" />
-      </video>
-      <img src="media/hero-golf.jpg" alt="" loading="eager" decoding="async" />
-    </div>
-    <div class="container inner">
-      <div>
-        <span class="badge" aria-label="Nouveau concept">
-          <!-- golf flag icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2v20"></path><path d="M6 3l12 4-12 4"></path><circle cx="18" cy="19" r="2"></circle></svg>
-          Nouveau dans les Hauts-de-France
-        </span>
-        <h1>Un seul abonnement. <br/>Jouez sur plusieurs golfs partenaires.</h1>
-        <p class="lead">Moins cher que les green fees à l’unité. Plus flexible qu’une cotisation annuelle. <strong>Vos crédits s’accumulent tant que vous restez abonné</strong>, et expirent 2 mois après un désabonnement.</p>
-        <div class="cta-row">
-          <a class="btn" href="#inscription">Je veux être informé du lancement</a>
-          <a class="btn secondary" href="#comment">Comment ça marche ?</a>
-        </div>
-        <div class="hero-card" style="margin-top:24px">
-          <strong>Barème simple</strong>
-          <ul>
-            <li>9 trous : 1 crédit en basse saison • 2 crédits en haute saison</li>
-            <li>18 trous standard : 2 crédits en basse saison • 3 crédits en haute saison</li>
-            <li>18 trous premium : 3 crédits en basse saison • 4 crédits en haute saison</li>
-          </ul>
-          <span class="note">Basse saison = semaine + hiver. Haute saison = week-end + été.</span>
-        </div>
-      </div>
-      <div>
-        <!-- Simple decorative card -->
-        <div class="hero-card">
-          <h3 style="margin:0 0 10px">Exemple concret</h3>
-          <p style="margin:0 0 8px">Formule <strong>Premium</strong> : 120 €/mois → 9 crédits.</p>
-          <ul>
-            <li>2× 18T premium en haute saison (2×4 crédits) + 1× 9T en basse saison (1 crédit)</li>
-            <li>Sans abonnement : ~170 € • Avec abonnement : 120 € → <strong>~30 % d’économie</strong></li>
-          </ul>
-          <p class="note">Exemple indicatif basé sur un GF premium à ~70 € public / ~50 € négocié.</p>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section id="comment">
-    <div class="container">
-      <h2>Comment ça marche ?</h2>
-      <p class="sub">3 étapes simples pour jouer plus souvent, sans exploser votre budget.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="id">1</div>
-          <h3>Choisissez votre formule</h3>
-          <p>Light, Standard ou Premium : sélectionnez le nombre de crédits qui correspond à votre rythme de jeu.</p>
-        </div>
-        <div class="step">
-          <div class="id">2</div>
-          <h3>Recevez vos crédits chaque mois</h3>
-          <p>Vos crédits s’accumulent tant que votre abonnement reste actif. Rien n’est perdu si vous jouez moins un mois.</p>
-        </div>
-        <div class="step">
-          <div class="id">3</div>
-          <h3>Réservez et jouez</h3>
-          <p>Utilisez vos crédits dans les golfs partenaires. Les créneaux « prime time » coûtent plus de crédits, les créneaux creux moins.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="offres">
-    <div class="container">
-      <h2>Nos formules</h2>
-      <p class="sub">Des crédits au meilleur prix, pour jouer quand et où vous voulez.</p>
-      <div class="pricing">
-        <article class="plan">
-          <span class="pill">Light</span>
-          <div class="price">50 €<span class="note">/mois</span></div>
-          <div class="credits">3 crédits / mois</div>
-          <ul>
-            <li>Idéal pour 1× 18T semaine + 1× 9T</li>
-            <li>Crédits cumulables tant que vous êtes abonné</li>
-            <li>2 mois pour utiliser vos crédits après résiliation</li>
-          </ul>
-          <a class="btn cta" href="#inscription">Rejoindre la liste d’attente</a>
-        </article>
-        <article class="plan highlight">
-          <span class="pill">Standard</span>
-          <div class="price">80 €<span class="note">/mois</span></div>
-          <div class="credits">5 crédits / mois</div>
-          <ul>
-            <li>Parfait pour 2× 18T semaine + 1× 9T</li>
-            <li>Accès aux créneaux week-end (coût en crédits adapté)</li>
-            <li>Crédits cumulables</li>
-          </ul>
-          <a class="btn cta" href="#inscription">Rejoindre la liste d’attente</a>
-        </article>
-        <article class="plan">
-          <span class="pill">Premium</span>
-          <div class="price">120 €<span class="note">/mois</span></div>
-          <div class="credits">9 crédits / mois</div>
-          <ul>
-            <li>Jouez en prime time et sur des parcours premium</li>
-            <li>Exemple : 2× 18T premium (HS) + 1× 9T (BS)</li>
-            <li>Crédits cumulables</li>
-          </ul>
-          <a class="btn cta" href="#inscription">Rejoindre la liste d’attente</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="avantages">
-    <div class="container">
-      <h2>Pourquoi c’est avantageux ?</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Moins cher qu’à l’unité</h3>
-          <p>Grâce aux crédits, le coût par partie est inférieur au green fee public, surtout si vous jouez régulièrement.</p>
-        </div>
-        <div class="card">
-          <h3>Flexibilité totale</h3>
-          <p>Pas de cotisation unique à un seul club : jouez dans plusieurs golfs partenaires au fil de vos envies.</p>
-        </div>
-        <div class="card">
-          <h3>Crédits cumulables</h3>
-          <p>Vos crédits s’accumulent sans limite tant que vous restez abonné. En cas d’arrêt, vous avez 2 mois pour les utiliser.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="container">
-      <h2>FAQ (extraits)</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Comment sont calculés les crédits ?</h3>
-          <p>Le coût en crédits dépend de la <em>saison</em> et du <em>type de parcours</em>. 9T : 1/2 crédits (BS/HS) • 18T standard : 2/3 • 18T premium : 3/4.</p>
-        </div>
-        <div class="card">
-          <h3>Les crédits expirent-ils ?</h3>
-          <p>Non, tant que vous êtes abonné. Si vous résiliez, vous disposez de 2 mois pour les utiliser avant expiration.</p>
-        </div>
-        <div class="card">
-          <h3>Quels golfs seront partenaires ?</h3>
-          <p>Nous visons une sélection de parcours dans les Hauts-de-France (ex : Inesis, Mérignies, Vert-Parc, Mormal, etc.). L’annonce officielle sera faite au lancement.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="inscription" class="signup">
-    <div class="container">
-      <h2>Inscrivez-vous à la liste d’attente</h2>
-      <p class="sub">Soyez prévenu en priorité du lancement et des places pour la phase pilote.</p>
-
-      <!-- ✅ Netlify Forms (détection côté build) -->
-      <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return validate(this)">
-        <input type="hidden" name="form-name" value="waitlist" />
-        <p style="display:none">
-          <label>Ne pas remplir si vous êtes humain: <input name="bot-field" /></label>
-        </p>
-        <div>
-          <label for="name">Nom</label>
-          <input id="name" name="name" type="text" required placeholder="Jean Dupont" />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required placeholder="jean@mail.com" />
-        </div>
-        <div>
-          <label for="freq">Fréquence de jeu</label>
-          <select id="freq" name="freq" required>
-            <option value="">Sélectionnez…</option>
-            <option>Moins de 5 parcours/an</option>
-            <option>5 à 10 parcours/an</option>
-            <option>11 à 20 parcours/an</option>
-            <option>Plus de 20 parcours/an</option>
-          </select>
-        </div>
-        <div>
-          <label for="zone">Golf principal (optionnel)</label>
-          <input id="zone" name="golf" type="text" placeholder="ex : Mérignies / Inesis / …" />
-        </div>
-        <div class="full consent">
-          <input id="consent" type="checkbox" required />
-          <label for="consent">J’accepte d’être contacté par email au sujet du lancement et des informations liées à l’abonnement.</label>
-        </div>
-        <div class="full submit">
-          <button class="btn" type="submit">Rejoindre la liste d’attente</button>
-          <span class="note">Aucun spam. Vous pourrez vous désinscrire à tout moment.</span>
-        </div>
-      </form>
-
-      <noscript>
-        <p class="note">JavaScript est désactivé : le formulaire reste fonctionnel mais sans validation côté client.</p>
-      </noscript>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap">
-        <div>© <span id="y"></span> GreenKey Golf — Tous droits réservés.</div>
-        <div>
-          <a href="#inscription">Contact</a> · <a href="#faq">FAQ</a> · 
-          <a href="/legal/mentions-legales.html">Mentions légales</a> · 
-          <a href="/legal/cgu.html">CGU</a> · 
-          <a href="/legal/confidentialite.html">Confidentialité</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // petites aides UX
-    (function(){
-      var y = document.getElementById('y');
-      if(y) y.textContent = new Date().getFullYear();
-    })();
-    function validate(form){
-      const ok = form.name.value && form.email.value && form.freq.value && form.querySelector('#consent').checked;
-      if(!ok){
-        alert('Merci de compléter les champs requis.');
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GreenKey Golf – Jouez plus, payez moins</title>
+    <meta
+      name="description"
+      content="Un abonnement mensuel à crédits pour jouer sur plusieurs golfs partenaires dans les Hauts-de-France. Moins cher que les green fees à l’unité, plus flexible qu’une cotisation annuelle."
+    />
+    <meta name="theme-color" content="#22c55e" />
+    <!-- Open Graph / Twitter -->
+    <meta
+      property="og:title"
+      content="GreenKey Golf – Jouez plus, payez moins"
+    />
+    <meta
+      property="og:description"
+      content="Un abonnement mensuel à crédits pour jouer sur plusieurs golfs partenaires."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://greenkey.example/" />
+    <meta property="og:image" content="/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.ico" />
+    <style>
+      :root {
+        --bg: #0b1e10; /* vert très sombre */
+        --brand: #22c55e; /* vert principal */
+        --brand-2: #16a34a; /* vert secondaire */
+        --ink: #0f172a; /* texte foncé */
+        --ink-2: #334155; /* texte moyen */
+        --paper: #ffffff; /* blanc */
+        --muted: #f1f5f9; /* gris clair */
+        --card: #ffffff;
+        --ring: rgba(34, 197, 94, 0.3);
       }
-      return ok;
-    }
-    // Accessibilité/énergie : pause la vidéo si nécessaire
-    (function(){
-      const v=document.getElementById('heroVideo');
-      if(!v) return;
-      const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
-      if(prefersReduced.matches){ v.removeAttribute('autoplay'); try{v.pause();}catch(e){} }
-      document.addEventListener('visibilitychange',()=>{
-        if(document.hidden) { try{v.pause();}catch(e){} }
-        else if(!prefersReduced.matches) { v.play().catch(()=>{}); }
-      });
-    })();
-  </script>
-  <!-- (optionnel) Plausible analytics -->
-  <!-- <script defer data-domain="votre-domaine.netlify.app" src="https://plausible.io/js/script.js"></script> -->
-</body>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--ink);
+        background: #fff;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Hero */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        color: #eafff3;
+        background: #0b1e10;
+      }
+      .hero::before {
+        $1z-index: 1;
+      }
+      .hero .media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero .media video,
+      .hero .media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .hero .inner {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items: center;
+        padding: 90px 0;
+      }
+      @media (max-width: 900px) {
+        .hero .inner {
+          grid-template-columns: 1fr;
+          padding: 60px 0;
+        }
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+        font-size: 12px;
+        letter-spacing: 0.2px;
+      }
+      .badge svg {
+        width: 14px;
+        height: 14px;
+      }
+      h1 {
+        font-size: clamp(32px, 5vw, 56px);
+        line-height: 1.05;
+        margin: 14px 0;
+      }
+      .lead {
+        font-size: clamp(16px, 2.2vw, 20px);
+        color: #d7ffe6;
+        max-width: 56ch;
+      }
+      .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 18px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: var(--brand);
+        color: #06230f;
+        font-weight: 700;
+        box-shadow: 0 10px 20px rgba(34, 197, 94, 0.25);
+        cursor: pointer;
+      }
+      .btn.secondary {
+        background: transparent;
+        color: #d7ffe6;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+      .hero-card {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(6px);
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .hero-card ul {
+        padding-left: 18px;
+        margin: 10px 0;
+      }
+      .hero-card li {
+        margin: 6px 0;
+      }
+
+      /* Sections */
+      section {
+        padding: 70px 0;
+      }
+      h2 {
+        font-size: clamp(26px, 4vw, 36px);
+        margin: 0 0 16px;
+      }
+      .sub {
+        color: var(--ink-2);
+        margin-top: -6px;
+        margin-bottom: 24px;
+      }
+
+      /* Steps */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      @media (max-width: 900px) {
+        .steps {
+          grid-template-columns: 1fr;
+        }
+      }
+      .step {
+        background: var(--card);
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .step .id {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: var(--brand);
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      /* Pricing */
+      .pricing {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      @media (max-width: 1000px) {
+        .pricing {
+          grid-template-columns: 1fr;
+        }
+      }
+      .plan {
+        background: var(--card);
+        border: 1px solid #e2e8f0;
+        border-radius: 18px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+      }
+      .plan.highlight {
+        border-color: var(--brand);
+        box-shadow: 0 10px 24px rgba(34, 197, 94, 0.12);
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        background: var(--muted);
+        border-radius: 999px;
+        font-size: 12px;
+        color: var(--ink-2);
+        margin-bottom: 10px;
+      }
+      .price {
+        font-size: 34px;
+        font-weight: 900;
+        margin: 10px 0;
+      }
+      .credits {
+        font-size: 14px;
+        color: var(--ink-2);
+      }
+      .plan ul {
+        padding-left: 18px;
+      }
+      .plan li {
+        margin: 8px 0;
+      }
+      .plan .cta {
+        margin-top: auto;
+      }
+
+      /* Advantages */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      @media (max-width: 900px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      /* Signup */
+      .signup {
+        background: linear-gradient(180deg, #f6fff8, #ffffff);
+      }
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 18px;
+      }
+      @media (max-width: 700px) {
+        form {
+          grid-template-columns: 1fr;
+        }
+      }
+      label {
+        font-size: 14px;
+        color: var(--ink-2);
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 12px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        outline: none;
+      }
+      input:focus,
+      select:focus {
+        box-shadow: 0 0 0 4px var(--ring);
+        border-color: var(--brand);
+      }
+      .full {
+        grid-column: 1/-1;
+      }
+      .consent {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 13px;
+        color: var(--ink-2);
+      }
+      .consent input {
+        width: auto;
+        margin-top: 2px;
+      }
+      .submit {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      /* Footer */
+      footer {
+        padding: 40px 0;
+        border-top: 1px solid #e2e8f0;
+        color: var(--ink-2);
+        font-size: 14px;
+      }
+
+      /* Tiny helper */
+      .note {
+        font-size: 12px;
+        color: var(--ink-2);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="media" aria-hidden="true">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="media/hero-golf.jpg"
+          id="heroVideo"
+        >
+          <source src="media/hero-golf.webm" type="video/webm" />
+          <source src="media/hero-golf.mp4" type="video/mp4" />
+        </video>
+        <img
+          src="media/hero-golf.jpg"
+          alt=""
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+      <div class="container inner">
+        <div>
+          <span class="badge" aria-label="Nouveau concept">
+            <!-- golf flag icon -->
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M6 2v20"></path>
+              <path d="M6 3l12 4-12 4"></path>
+              <circle cx="18" cy="19" r="2"></circle>
+            </svg>
+            Nouveau dans les Hauts-de-France
+          </span>
+          <h1>
+            Un seul abonnement. <br />Jouez sur plusieurs golfs partenaires.
+          </h1>
+          <p class="lead">
+            Moins cher que les green fees à l’unité. Plus flexible qu’une
+            cotisation annuelle.
+            <strong>Vos crédits s’accumulent tant que vous restez abonné</strong
+            >, et expirent 2 mois après un désabonnement.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="#inscription"
+              >Je veux être informé du lancement</a
+            >
+            <a class="btn secondary" href="#comment">Comment ça marche ?</a>
+          </div>
+          <div class="hero-card" style="margin-top: 24px">
+            <strong>Barème simple</strong>
+            <ul>
+              <li>
+                9 trous : 1 crédit en basse saison • 2 crédits en haute saison
+              </li>
+              <li>
+                18 trous standard : 2 crédits en basse saison • 3 crédits en
+                haute saison
+              </li>
+              <li>
+                18 trous premium : 3 crédits en basse saison • 4 crédits en
+                haute saison
+              </li>
+            </ul>
+            <span class="note"
+              >Basse saison = semaine + hiver. Haute saison = week-end +
+              été.</span
+            >
+          </div>
+        </div>
+        <div>
+          <!-- Simple decorative card -->
+          <div class="hero-card">
+            <h3 style="margin: 0 0 10px">Exemple concret</h3>
+            <p style="margin: 0 0 8px">
+              Formule <strong>Premium</strong> : 120 €/mois → 9 crédits.
+            </p>
+            <ul>
+              <li>
+                2× 18T premium en haute saison (2×4 crédits) + 1× 9T en basse
+                saison (1 crédit)
+              </li>
+              <li>
+                Sans abonnement : ~170 € • Avec abonnement : 120 € →
+                <strong>~30 % d’économie</strong>
+              </li>
+            </ul>
+            <p class="note">
+              Exemple indicatif basé sur un GF premium à ~70 € public / ~50 €
+              négocié.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="comment">
+      <div class="container">
+        <h2>Comment ça marche ?</h2>
+        <p class="sub">
+          3 étapes simples pour jouer plus souvent, sans exploser votre budget.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="id">1</div>
+            <h3>Choisissez votre formule</h3>
+            <p>
+              Light, Standard ou Premium : sélectionnez le nombre de crédits qui
+              correspond à votre rythme de jeu.
+            </p>
+          </div>
+          <div class="step">
+            <div class="id">2</div>
+            <h3>Recevez vos crédits chaque mois</h3>
+            <p>
+              Vos crédits s’accumulent tant que votre abonnement reste actif.
+              Rien n’est perdu si vous jouez moins un mois.
+            </p>
+          </div>
+          <div class="step">
+            <div class="id">3</div>
+            <h3>Réservez et jouez</h3>
+            <p>
+              Utilisez vos crédits dans les golfs partenaires. Les créneaux «
+              prime time » coûtent plus de crédits, les créneaux creux moins.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offres">
+      <div class="container">
+        <h2>Nos formules</h2>
+        <p class="sub">
+          Des crédits au meilleur prix, pour jouer quand et où vous voulez.
+        </p>
+        <div class="pricing">
+          <article class="plan">
+            <span class="pill">Light</span>
+            <div class="price">50 €<span class="note">/mois</span></div>
+            <div class="credits">3 crédits / mois</div>
+            <ul>
+              <li>Idéal pour 1× 18T semaine + 1× 9T</li>
+              <li>Crédits cumulables tant que vous êtes abonné</li>
+              <li>2 mois pour utiliser vos crédits après résiliation</li>
+            </ul>
+            <a class="btn cta" href="#inscription"
+              >Rejoindre la liste d’attente</a
+            >
+          </article>
+          <article class="plan highlight">
+            <span class="pill">Standard</span>
+            <div class="price">80 €<span class="note">/mois</span></div>
+            <div class="credits">5 crédits / mois</div>
+            <ul>
+              <li>Parfait pour 2× 18T semaine + 1× 9T</li>
+              <li>Accès aux créneaux week-end (coût en crédits adapté)</li>
+              <li>Crédits cumulables</li>
+            </ul>
+            <a class="btn cta" href="#inscription"
+              >Rejoindre la liste d’attente</a
+            >
+          </article>
+          <article class="plan">
+            <span class="pill">Premium</span>
+            <div class="price">120 €<span class="note">/mois</span></div>
+            <div class="credits">9 crédits / mois</div>
+            <ul>
+              <li>Jouez en prime time et sur des parcours premium</li>
+              <li>Exemple : 2× 18T premium (HS) + 1× 9T (BS)</li>
+              <li>Crédits cumulables</li>
+            </ul>
+            <a class="btn cta" href="#inscription"
+              >Rejoindre la liste d’attente</a
+            >
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="avantages">
+      <div class="container">
+        <h2>Pourquoi c’est avantageux ?</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Moins cher qu’à l’unité</h3>
+            <p>
+              Grâce aux crédits, le coût par partie est inférieur au green fee
+              public, surtout si vous jouez régulièrement.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Flexibilité totale</h3>
+            <p>
+              Pas de cotisation unique à un seul club : jouez dans plusieurs
+              golfs partenaires au fil de vos envies.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Crédits cumulables</h3>
+            <p>
+              Vos crédits s’accumulent sans limite tant que vous restez abonné.
+              En cas d’arrêt, vous avez 2 mois pour les utiliser.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2>FAQ (extraits)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Comment sont calculés les crédits ?</h3>
+            <p>
+              Le coût en crédits dépend de la <em>saison</em> et du
+              <em>type de parcours</em>. 9T : 1/2 crédits (BS/HS) • 18T standard
+              : 2/3 • 18T premium : 3/4.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Les crédits expirent-ils ?</h3>
+            <p>
+              Non, tant que vous êtes abonné. Si vous résiliez, vous disposez de
+              2 mois pour les utiliser avant expiration.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Quels golfs seront partenaires ?</h3>
+            <p>
+              Nous visons une sélection de parcours dans les Hauts-de-France (ex
+              : Inesis, Mérignies, Vert-Parc, Mormal, etc.). L’annonce
+              officielle sera faite au lancement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inscription" class="signup">
+      <div class="container">
+        <h2>Inscrivez-vous à la liste d’attente</h2>
+        <p class="sub">
+          Soyez prévenu en priorité du lancement et des places pour la phase
+          pilote.
+        </p>
+
+        <!-- ✅ Netlify Forms (détection côté build) -->
+        <form
+          name="waitlist"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          onsubmit="return validate(this)"
+        >
+          <input type="hidden" name="form-name" value="waitlist" />
+          <p style="display: none">
+            <label
+              >Ne pas remplir si vous êtes humain: <input name="bot-field"
+            /></label>
+          </p>
+          <div>
+            <label for="name">Nom</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              placeholder="Jean Dupont"
+            />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="jean@mail.com"
+            />
+          </div>
+          <div>
+            <label for="freq">Fréquence de jeu</label>
+            <select id="freq" name="freq" required>
+              <option value="">Sélectionnez…</option>
+              <option>Moins de 5 parcours/an</option>
+              <option>5 à 10 parcours/an</option>
+              <option>11 à 20 parcours/an</option>
+              <option>Plus de 20 parcours/an</option>
+            </select>
+          </div>
+          <div>
+            <label for="zone">Golf principal (optionnel)</label>
+            <input
+              id="zone"
+              name="golf"
+              type="text"
+              placeholder="ex : Mérignies / Inesis / …"
+            />
+          </div>
+          <div class="full consent">
+            <input id="consent" type="checkbox" required />
+            <label for="consent"
+              >J’accepte d’être contacté par email au sujet du lancement et des
+              informations liées à l’abonnement.</label
+            >
+          </div>
+          <div class="full submit">
+            <button class="btn" type="submit">
+              Rejoindre la liste d’attente
+            </button>
+            <span class="note"
+              >Aucun spam. Vous pourrez vous désinscrire à tout moment.</span
+            >
+          </div>
+        </form>
+
+        <noscript>
+          <p class="note">
+            JavaScript est désactivé : le formulaire reste fonctionnel mais sans
+            validation côté client.
+          </p>
+        </noscript>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            © <span id="y"></span> GreenKey Golf — Tous droits réservés.
+          </div>
+          <div>
+            <a href="#inscription">Contact</a> · <a href="#faq">FAQ</a> ·
+            <a href="/legal/mentions-legales.html">Mentions légales</a> ·
+            <a href="/legal/cgu.html">CGU</a> ·
+            <a href="/legal/confidentialite.html">Confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // petites aides UX
+      (function () {
+        var y = document.getElementById("y");
+        if (y) y.textContent = new Date().getFullYear();
+      })();
+      function validate(form) {
+        const ok =
+          form.name.value &&
+          form.email.value &&
+          form.freq.value &&
+          form.querySelector("#consent").checked;
+        if (!ok) {
+          alert("Merci de compléter les champs requis.");
+        }
+        return ok;
+      }
+      // Accessibilité/énergie : pause la vidéo si nécessaire
+      (function () {
+        const v = document.getElementById("heroVideo");
+        if (!v) return;
+        const prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        );
+        if (prefersReduced.matches) {
+          v.removeAttribute("autoplay");
+          try {
+            v.pause();
+          } catch (e) {}
+        }
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            try {
+              v.pause();
+            } catch (e) {}
+          } else if (!prefersReduced.matches) {
+            v.play().catch(() => {});
+          }
+        });
+      })();
+    </script>
+    <!-- (optionnel) Plausible analytics -->
+    <!-- <script defer data-domain="votre-domaine.netlify.app" src="https://plausible.io/js/script.js"></script> -->
+  </body>
 </html>
