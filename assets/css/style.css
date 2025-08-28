@@ -9,6 +9,8 @@
   --card: #ffffff;
   --ring: rgba(34, 197, 94, 0.3);
 }
+
+/* ========== Base ========== */
 html,
 body {
   margin: 0;
@@ -28,7 +30,7 @@ a {
   padding: 0 24px;
 }
 
-/* Hero */
+/* ========== Hero (landing) ========== */
 .hero {
   position: relative;
   overflow: hidden;
@@ -71,8 +73,8 @@ a {
   .hero .inner {
     grid-template-columns: 1fr;
     padding: 60px 16px;
-  }
-} /* réduit les marges latérales sur mobile */
+  } /* marges latérales mobile */
+}
 .badge {
   display: inline-flex;
   align-items: center;
@@ -138,8 +140,6 @@ h1 {
 .hero-card li {
   margin: 6px 0;
 }
-
-/* Sections */
 section {
   padding: 70px 0;
 }
@@ -164,7 +164,7 @@ h2 {
     grid-template-columns: 1fr;
     padding: 0 16px;
   }
-} /* marge intérieure mobile */
+}
 .step {
   background: var(--card);
   border: 1px solid #e2e8f0;
@@ -263,7 +263,7 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 18px;
@@ -321,64 +321,135 @@ footer {
   font-size: 12px;
   color: var(--ink-2);
 }
+
+/* lisibilité titres/lead sur vidéo (landing uniquement) */
 .hero h1,
 .hero .lead {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* ===== Styles spécifiques page merci ===== */
+/* ========== Page Merci ========== */
+/* Fond plein écran avec image + overlay cohérent avec la landing */
+.hero-thank {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  min-height: 100vh;
+}
+.hero-thank::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 30, 16, 0.5),
+    rgba(11, 30, 16, 0.85)
+  );
+  z-index: 1;
+}
+.hero-thank .media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-thank .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Centrage vertical + bloc remonté */
+.hero-thank .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 12vh;
+  min-height: 100vh;
+}
+
+/* Carte + layout */
 .wrap {
-  max-width: 760px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 48px 20px;
+  padding: 32px 16px;
 }
 .card {
   position: relative;
   background: var(--paper);
   border: 1px solid #e2e8f0;
   border-radius: 20px;
-  padding: 28px 24px;
+  padding: 20px 20px 24px;
   box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
 }
-.head {
+.topbar {
+  display: none !important;
+} /* (supprimée visuellement) */
+
+.confirm {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 10px;
+  gap: 16px;
+  align-items: flex-start;
 }
 .picto {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
+  flex: 0 0 40px;
   border-radius: 12px;
   background: rgba(34, 197, 94, 0.12);
   border: 1px solid rgba(34, 197, 94, 0.25);
 }
 .picto svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   color: var(--brand);
 }
-.topbar {
-  height: 6px;
-  background: linear-gradient(
-    90deg,
-    rgba(34, 197, 94, 0.6),
-    rgba(34, 197, 94, 1)
-  );
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  margin: -28px -24px 18px;
+
+/* Typo + espacements (titre/texte/bouton) */
+.hero-thank .txt h1,
+.hero-thank .txt p {
+  text-shadow: none;
+  color: var(--ink);
 }
+.hero-thank .txt h1 {
+  margin: 0 0 18px;
+  font-size: clamp(24px, 3.2vw, 30px);
+  line-height: 1.2;
+  font-weight: 800;
+}
+.hero-thank .txt p {
+  margin: 0 0 22px;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+/* Bouton centré uniquement (le texte reste aligné à gauche) */
+.hero-thank .txt {
+  text-align: left;
+}
+.hero-thank .txt .btn {
+  margin: 10px auto 0;
+  display: inline-flex; /* centre le bouton */
+}
+
+/* Mobile */
 @media (max-width: 640px) {
+  .hero-thank .container {
+    padding-top: 8vh;
+  }
   .wrap {
-    padding: 36px 16px;
+    max-width: 94%;
+    padding: 24px 12px;
   }
   .card {
-    padding: 24px 18px;
+    padding: 16px 16px 20px;
   }
-  .topbar {
-    margin: -24px -18px 16px;
+  .confirm {
+    flex-direction: row;
+    align-items: flex-start;
   }
 }

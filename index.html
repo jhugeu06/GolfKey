@@ -10,7 +10,7 @@
     />
     <meta name="theme-color" content="#22c55e" />
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <header class="hero">
@@ -20,14 +20,14 @@
           muted
           loop
           playsinline
-          poster="media/hero-golf.jpg"
+          poster="assets/media/hero-golf.mp4"
           id="heroVideo"
         >
-          <source src="media/hero-golf.webm" type="video/webm" />
-          <source src="media/hero-golf.mp4" type="video/mp4" />
+          <source src="assets/media/hero-golf.webm" type="video/webm" />
+          <source src="assets/media/hero-golf.mp4" type="video/mp4" />
         </video>
         <img
-          src="media/hero-golf.jpg"
+          src="assets/media/hero-golf.jpg"
           alt=""
           loading="eager"
           decoding="async"
@@ -254,6 +254,7 @@
         <form
           name="waitlist"
           method="POST"
+          netlify
           data-netlify="true"
           netlify-honeypot="bot-field"
           onsubmit="return validate(this)"
