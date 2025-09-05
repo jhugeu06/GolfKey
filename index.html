@@ -3,428 +3,398 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GolfKey — Un seul abonnement. Tous les golfs.</title>
+    <title>GolfKey – Jouez plus, payez moins</title>
     <meta
       name="description"
-      content="Un seul abonnement pour jouer dans tous les golfs de la région, avec 25–40% d’économies sur vos green fees. Crédits simples, grille transparente."
+      content="Un abonnement mensuel à crédits pour jouer sur plusieurs golfs partenaires dans les Hauts-de-France. Moins cher que les green fees à l’unité, plus flexible qu’une cotisation annuelle."
     />
-    <!-- Couleurs avec fort contraste -->
+    <meta name="theme-color" content="#22c55e" />
+    <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <section class="hero has-media" aria-labelledby="titre-hero">
-      <div class="hero__media" aria-hidden="true">
-        <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="/assets/media/hero-golf.jpg">
-  <source src="/assets/media/hero-golf.webm" type="video/webm">
-  <source src="/assets/media/hero-golf.mp4" type="video/mp4">
-  <!-- Fallback si aucune vidéo ne se charge -->
-  <img src="/assets/media/hero-golf.jpg" alt="">
-</video>
-
+    <header class="hero">
+      <div class="media" aria-hidden="true">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="assets/media/hero-golf.mp4"
+          id="heroVideo"
+        >
+          <source src="assets/media/hero-golf.webm" type="video/webm" />
+          <source src="assets/media/hero-golf.mp4" type="video/mp4" />
         </video>
-        <div class="hero__overlay"></div>
+        <img
+          src="assets/media/hero-golf.jpg"
+          alt=""
+          loading="eager"
+          decoding="async"
+        />
       </div>
-
-      <div class="container hero__content">
-        <h1 id="titre-hero">Un seul abonnement. Tous les golfs.</h1>
-        <p>
-          25–40% d’économies, crédits simples (Argent / Or / Platine /
-          Prestige).
-        </p>
-
-        <div class="cta-row">
-          <a class="btn" href="#inscription">Je m’inscris</a>
-          <a class="btn secondary" href="#tarifs">Voir les tarifs</a>
-        </div>
-      </div>
-
-      <noscript>
-        <div class="hero__media hero__media--image" aria-hidden="true">
-          <img src="/assets/media/hero-golf.jpg" alt="" />
-          <div class="hero__overlay"></div>
-        </div>
-      </noscript>
-    </section>
-
-    <a href="#contenu" class="skip">Aller au contenu</a>
-
-    <header role="banner">
-      <div class="container">
-        <nav aria-label="Barre de navigation">
-          <div class="logo" aria-label="GolfKey">
-            <!-- Icône placeholder accessible -->
-            <span aria-hidden="true">⛳</span>
-            <span>GolfKey</span>
-          </div>
+      <div class="container inner">
+        <div>
+          <span class="badge">Nouveau dans les Hauts-de-France</span>
+          <h1>
+            Un seul abonnement. <br />Jouez sur plusieurs golfs partenaires.
+          </h1>
+          <p class="lead">
+            Moins cher que les green fees à l’unité. Plus flexible qu’une
+            cotisation annuelle.
+            <strong>Vos crédits s’accumulent tant que vous restez abonné</strong
+            >, et expirent 2 mois après un désabonnement.
+          </p>
           <div class="cta-row">
-            <a
-              class="btn secondary"
-              href="#comment"
-              aria-label="Aller à la section Comment ça marche"
-              >Comment ça marche</a
+            <a class="btn" href="#inscription"
+              >Je veux être informé du lancement</a
             >
-            <a
-              class="btn"
-              href="#inscription"
-              aria-label="S’inscrire à la liste d’attente"
-              >Rejoindre la liste d’attente</a
+            <a class="btn secondary" href="#comment">Comment ça marche ?</a>
+          </div>
+          <div class="hero-card" style="margin-top: 24px">
+            <strong>Barème simple</strong>
+            <ul>
+              <li>
+                9 trous : 1 crédit en basse saison • 2 crédits en haute saison
+              </li>
+              <li>
+                18 trous standard : 2 crédits en basse saison • 3 crédits en
+                haute saison
+              </li>
+              <li>
+                18 trous premium : 3 crédits en basse saison • 4 crédits en
+                haute saison
+              </li>
+            </ul>
+            <span class="note" style="color: #ddd"
+              >Basse saison = semaine + hiver. Haute saison = week-end +
+              été.</span
             >
           </div>
-        </nav>
+        </div>
+        <div>
+          <div class="hero-card">
+            <h3 style="margin: 0 0 10px">Exemple concret</h3>
+            <p style="margin: 0 0 8px">
+              Formule <strong>Premium</strong> : 120 €/mois → 9 crédits.
+            </p>
+            <ul>
+              <li>
+                2× 18T premium en haute saison (2×4 crédits) + 1× 9T en basse
+                saison (1 crédit)
+              </li>
+              <li>
+                Sans abonnement : ~170 € • Avec abonnement : 120 € →
+                <strong>~30 % d’économie</strong>
+              </li>
+            </ul>
+            <p class="note" style="color: #ddd">
+              Exemple indicatif basé sur un GF premium à ~70 € public / ~50 €
+              négocié.
+            </p>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main id="contenu">
-      <!-- HERO -->
-      <section class="hero container" aria-labelledby="titre-hero">
-        <div class="grid cols-2">
-          <div>
-            <h1 id="titre-hero">Un seul abonnement.<br />Tous les golfs.</h1>
-            <p>
-              Jouez où vous voulez, quand vous voulez — avec
-              <strong>25–40&nbsp;% d’économies</strong> sur vos green fees et
-              une grille en crédits simple et transparente.
-            </p>
-            <div class="kpis" role="list" aria-label="Points clés">
-              <div class="kpi" role="listitem">Tous les golfs visés</div>
-              <div class="kpi" role="listitem">Réservation fluide</div>
-              <div class="kpi" role="listitem">Crédits cumulables</div>
-            </div>
-            <div style="height: 12px"></div>
-            <div class="cta-row">
-              <a class="btn" href="#inscription">Je m’inscris</a>
-              <a class="btn secondary" href="#tarifs">Voir les tarifs</a>
-            </div>
-          </div>
-          <div>
-            <!-- Placeholder illustration -->
-            <img
-              src=""
-              alt="Illustration : un golfeur réserve un départ sur son téléphone"
-              role="img"
-              aria-describedby="illus-desc"
-            />
-            <p id="illus-desc" class="visually-hidden">
-              Interface simple de réservation de parcours depuis l’application.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- COMMENT ÇA MARCHE -->
-      <section
-        id="comment"
-        class="section container"
-        aria-labelledby="how-title"
-      >
-        <h2 id="how-title">Comment ça marche</h2>
-        <div class="grid cols-3">
-          <article class="card" aria-label="Étape 1 — Choisissez votre pack">
-            <span class="badge">Étape 1</span>
-            <h3>Choisissez votre pack</h3>
-            <ul class="list">
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span><strong>59 €</strong> → 6 crédits</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span><strong>99 €</strong> → 10 crédits</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span><strong>149 €</strong> → 16 crédits</span>
-              </li>
-            </ul>
-          </article>
-          <article class="card" aria-label="Étape 2 — Utilisez vos crédits">
-            <span class="badge">Étape 2</span>
-            <h3>Utilisez vos crédits</h3>
-            <p class="muted">
-              Chaque parcours coûte un nombre de crédits selon sa catégorie et
-              la période.
-            </p>
-            <div class="legend" aria-label="Légende catégories">
-              <div class="pill">
-                Argent
-                <small>9T académiques • <strong>2–3</strong> crédits</small>
-              </div>
-              <div class="pill">
-                Or <small>9T & 18T classiques • <strong>3–6</strong></small>
-              </div>
-              <div class="pill">
-                Platine <small>18T premium • <strong>5–7</strong></small>
-              </div>
-              <div class="pill">
-                Prestige <small>Grands golfs • <strong>6–7+</strong></small>
-              </div>
-            </div>
-          </article>
-          <article class="card" aria-label="Étape 3 — Jouez partout">
-            <span class="badge">Étape 3</span>
-            <h3>Jouez partout</h3>
-            <ul class="list">
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>Un seul abonnement, tous les golfs visés</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>Crédits valables semaine & week-end (barème clair)</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>Grille dynamique <em>(haute/basse saison)</em></span>
-              </li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <!-- TARIFS -->
-      <section
-        id="tarifs"
-        class="section container"
-        aria-labelledby="pricing-title"
-      >
-        <h2 id="pricing-title">Tarifs simples</h2>
-        <div class="grid cols-3" role="list">
-          <article
-            class="card plan"
-            role="listitem"
-            aria-label="Offre 59 euros"
-          >
-            <h3>Light</h3>
-            <div class="price">59 €<span class="muted"> / mois</span></div>
-            <p class="muted">6 crédits</p>
-            <ul class="list">
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>Idéal découverte</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span
-                  >2–3 parcours <strong>Argent</strong> / mois, ou 1
-                  <strong>Or</strong> + 1 <strong>Argent</strong></span
-                >
-              </li>
-            </ul>
-            <a
-              class="btn"
-              href="#inscription"
-              aria-label="Choisir l’offre Light à 59 euros"
-              >Choisir</a
-            >
-          </article>
-
-          <article
-            class="card plan"
-            role="listitem"
-            aria-label="Offre 99 euros"
-          >
-            <h3>Standard</h3>
-            <div class="price">99 €<span class="muted"> / mois</span></div>
-            <p class="muted">10 crédits</p>
-            <ul class="list">
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>Pour joueurs réguliers</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span
-                  ><strong>1–2 nouveaux parcours</strong> <strong>Or</strong> ou
-                  <strong>Platine</strong> / mois</span
-                >
-              </li>
-            </ul>
-            <a
-              class="btn"
-              href="#inscription"
-              aria-label="Choisir l’offre Standard à 99 euros"
-              >Choisir</a
-            >
-          </article>
-
-          <article
-            class="card plan"
-            role="listitem"
-            aria-label="Offre 149 euros"
-          >
-            <h3>Premium</h3>
-            <div class="price">149 €<span class="muted"> / mois</span></div>
-            <p class="muted">16 crédits</p>
-            <ul class="list">
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>Explorez largement</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span
-                  >2–3 parcours <strong>Platine</strong> / mois (ou
-                  <strong>Prestige</strong> à l’occasion)</span
-                >
-              </li>
-            </ul>
-            <a
-              class="btn"
-              href="#inscription"
-              aria-label="Choisir l’offre Premium à 149 euros"
-              >Choisir</a
-            >
-          </article>
-        </div>
-        <p class="muted" style="margin-top: 12px">
-          Le barème exact des crédits dépend de la <strong>catégorie</strong> et
-          de la <strong>période</strong> (semaine/week-end, basse/haute saison).
-          Transparence garantie dans l’app, golf par golf.
-        </p>
-      </section>
-
-      <!-- PERSONAS (bloc exemples courts + rassurance golfs) -->
-      <section class="section container" aria-labelledby="personas-title">
-        <h2 id="personas-title">Des usages clairs pour chacun</h2>
-        <div class="grid cols-3">
-          <article class="card" aria-label="Joueur occasionnel">
-            <h3>Joueur occasionnel</h3>
-            <p class="muted">Découverte, entretien du jeu.</p>
-            <ul class="list">
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>2–3 parcours <strong>Argent</strong> / mois</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span
-                  >Ou 1 <strong>Or</strong> + 1 <strong>Argent</strong></span
-                >
-              </li>
-            </ul>
-          </article>
-          <article
-            class="card"
-            aria-label="Joueur régulier avec club à l’année"
-          >
-            <h3>Régulier (abonné ailleurs)</h3>
-            <p class="muted">Complète son abonnement.</p>
-            <ul class="list">
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span
-                  ><strong>1–2 nouveaux parcours</strong> / mois
-                  (Or/Platine)</span
-                >
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>Varie sans changer de club</span>
-              </li>
-            </ul>
-          </article>
-          <article class="card" aria-label="Explorateur">
-            <h3>Explorateur</h3>
-            <p class="muted">Découvre des golfs emblématiques.</p>
-            <ul class="list">
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>2–3 <strong>Platine</strong> / mois</span>
-              </li>
-              <li>
-                <span class="dot" aria-hidden="true"></span
-                ><span>Parcours <strong>Prestige</strong> ponctuels</span>
-              </li>
-            </ul>
-          </article>
-        </div>
-        <p class="muted" style="margin-top: 12px">
-          Nous <strong>n’arrachons pas</strong> les abonnés aux clubs : nous
-          <strong>ajoutons</strong> des parties et du remplissage (notamment sur
-          des créneaux moins demandés).
-        </p>
-      </section>
-
-      <!-- FAQ courte -->
-      <section class="section container" aria-labelledby="faq-title">
-        <h2 id="faq-title">FAQ</h2>
-        <dl class="faq">
-          <dt>Comment sont calculés les crédits ?</dt>
-          <dd>
-            Par catégorie de parcours (Argent, Or, Platine, Prestige) et selon
-            la période (semaine/week-end, basse/haute saison). Barème clair dans
-            l’app.
-          </dd>
-
-          <dt>Les crédits expirent-ils ?</dt>
-          <dd>
-            Ils sont cumulables tant que vous êtes abonné. En cas de
-            résiliation, ils restent valables encore <strong>2 mois</strong>.
-          </dd>
-
-          <dt>Quels golfs sont inclus ?</dt>
-          <dd>
-            Objectif : <strong>tous</strong> les golfs de la région. Nous
-            intégrons les partenaires en continu pour que vous n’ayez plus à
-            chercher ailleurs.
-          </dd>
-        </dl>
-      </section>
-
-      <!-- FORM CTA -->
-      <section
-        id="inscription"
-        class="section container"
-        aria-labelledby="cta-title"
-      >
-        <h2 id="cta-title">Soyez informé du lancement</h2>
-        <form
-          class="card"
-          aria-describedby="cta-help"
-          onsubmit="event.preventDefault(); const s=document.getElementById('cta-status'); s.textContent='Merci ! Nous vous tiendrons informé(e) dès l’ouverture.'; s.focus();"
-        >
-          <label for="email" class="visually-hidden">Votre e-mail</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            class="input"
-            placeholder="votre@email.fr"
-            required
-            aria-required="true"
-            autocomplete="email"
-          />
-          <div style="height: 10px"></div>
-          <button
-            class="btn"
-            type="submit"
-            aria-label="S’inscrire à la liste d’attente"
-          >
-            Rejoindre la liste d’attente
-          </button>
-          <p id="cta-help" class="muted" style="margin-top: 8px">
-            Pas de spam. Un e-mail au lancement et, si vous le souhaitez, des
-            avancées majeures.
-          </p>
-          <p
-            id="cta-status"
-            tabindex="-1"
-            aria-live="polite"
-            class="muted"
-            style="margin-top: 8px"
-          ></p>
-        </form>
-      </section>
-    </main>
-
-    <footer class="footer">
+    <section id="comment">
       <div class="container">
-        <div>© GolfKey — Un seul abonnement, tous les golfs.</div>
-        <div class="muted">
-          Accessibilité : contrastes renforcés, focus visibles, alternatives
-          textuelles aux images. Dites-nous comment améliorer votre expérience.
+        <h2>Comment ça marche ?</h2>
+        <p class="sub">
+          3 étapes simples pour jouer plus souvent, sans exploser votre budget.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="id">1</div>
+            <h3>Choisissez votre formule</h3>
+            <p>
+              Light, Standard ou Premium : sélectionnez le nombre de crédits qui
+              correspond à votre rythme de jeu.
+            </p>
+          </div>
+          <div class="step">
+            <div class="id">2</div>
+            <h3>Recevez vos crédits chaque mois</h3>
+            <p>
+              Vos crédits s’accumulent tant que votre abonnement reste actif.
+              Rien n’est perdu si vous jouez moins un mois.
+            </p>
+          </div>
+          <div class="step">
+            <div class="id">3</div>
+            <h3>Réservez et jouez</h3>
+            <p>
+              Utilisez vos crédits dans les golfs partenaires. Les créneaux «
+              prime time » coûtent plus de crédits, les créneaux creux moins.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offres">
+      <div class="container">
+        <h2>Nos formules</h2>
+        <p class="sub">
+          Des crédits au meilleur prix, pour jouer quand et où vous voulez.
+        </p>
+        <div class="pricing">
+          <article class="plan">
+            <span class="pill">Light</span>
+            <div class="price">50 €<span class="note">/mois</span></div>
+            <div class="credits">3 crédits / mois</div>
+            <ul>
+              <li>Idéal pour 1× 18T semaine + 1× 9T</li>
+              <li>Crédits cumulables tant que vous êtes abonné</li>
+              <li>2 mois pour utiliser vos crédits après résiliation</li>
+            </ul>
+            <a class="btn cta" href="#inscription"
+              >Rejoindre la liste d’attente</a
+            >
+          </article>
+          <article class="plan highlight">
+            <span class="pill">Standard</span>
+            <div class="price">80 €<span class="note">/mois</span></div>
+            <div class="credits">5 crédits / mois</div>
+            <ul>
+              <li>Parfait pour 2× 18T semaine + 1× 9T</li>
+              <li>Accès aux créneaux week-end (coût en crédits adapté)</li>
+              <li>Crédits cumulables</li>
+            </ul>
+            <a class="btn cta" href="#inscription"
+              >Rejoindre la liste d’attente</a
+            >
+          </article>
+          <article class="plan">
+            <span class="pill">Premium</span>
+            <div class="price">120 €<span class="note">/mois</span></div>
+            <div class="credits">9 crédits / mois</div>
+            <ul>
+              <li>Jouez en prime time et sur des parcours premium</li>
+              <li>Exemple : 2× 18T premium (HS) + 1× 9T (BS)</li>
+              <li>Crédits cumulables</li>
+            </ul>
+            <a class="btn cta" href="#inscription"
+              >Rejoindre la liste d’attente</a
+            >
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="avantages">
+      <div class="container">
+        <h2>Pourquoi c’est avantageux ?</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Moins cher qu’à l’unité</h3>
+            <p>
+              Grâce aux crédits, le coût par partie est inférieur au green fee
+              public, surtout si vous jouez régulièrement.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Flexibilité totale</h3>
+            <p>
+              Pas de cotisation unique à un seul club : jouez dans plusieurs
+              golfs partenaires au fil de vos envies.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Crédits cumulables</h3>
+            <p>
+              Vos crédits s’accumulent sans limite tant que vous restez abonné.
+              En cas d’arrêt, vous avez 2 mois pour les utiliser.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2>FAQ (extraits)</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Comment sont calculés les crédits ?</h3>
+            <p>
+              Le coût en crédits dépend de la <em>saison</em> et du
+              <em>type de parcours</em>. 9T : 1/2 crédits (BS/HS) • 18T standard
+              : 2/3 • 18T premium : 3/4.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Les crédits expirent-ils ?</h3>
+            <p>
+              Non, tant que vous êtes abonné. Si vous résiliez, vous disposez de
+              2 mois pour les utiliser avant expiration.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Quels golfs seront partenaires ?</h3>
+            <p>
+              Nous visons une sélection de parcours dans les Hauts-de-France (ex
+              : Inesis, Mérignies, Vert-Parc, Mormal, etc.). L’annonce
+              officielle sera faite au lancement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inscription" class="signup">
+      <div class="container">
+        <h2>Inscrivez-vous à la liste d’attente</h2>
+        <p class="sub">
+          Soyez prévenu en priorité du lancement et des places pour la phase
+          pilote.
+        </p>
+
+        <!-- ✅ Netlify Forms (détection côté build) -->
+        <form
+          name="waitlist"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          onsubmit="return validate(this)"
+          action="/merci.html"
+        >
+          <input type="hidden" name="form-name" value="waitlist" />
+          <p style="display: none">
+            <label
+              >Ne pas remplir si vous êtes humain: <input name="bot-field"
+            /></label>
+          </p>
+          <div>
+            <label for="name">Nom</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              placeholder="Jean Dupont"
+            />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="jean@mail.com"
+            />
+          </div>
+          <div>
+            <label for="freq">Fréquence de jeu</label>
+            <select id="freq" name="freq" required>
+              <option value="">Sélectionnez…</option>
+              <option>Moins de 5 parcours/an</option>
+              <option>5 à 10 parcours/an</option>
+              <option>11 à 20 parcours/an</option>
+              <option>Plus de 20 parcours/an</option>
+            </select>
+          </div>
+          <div>
+            <label for="zone">Golf principal (optionnel)</label>
+            <input
+              id="zone"
+              name="golf"
+              type="text"
+              placeholder="ex : Mérignies / Inesis / …"
+            />
+          </div>
+          <div class="full consent">
+            <input id="consent" name="consent" type="checkbox" required />
+            <label for="consent"
+              >J’accepte d’être contacté par email au sujet du lancement et des
+              informations liées à l’abonnement.</label
+            >
+          </div>
+          <div class="full submit">
+            <button class="btn" type="submit">
+              Rejoindre la liste d’attente
+            </button>
+            <span class="note"
+              >Aucun spam. Vous pourrez vous désinscrire à tout moment.</span
+            >
+          </div>
+        </form>
+
+        <noscript>
+          <p class="note">
+            JavaScript est désactivé : le formulaire reste fonctionnel mais sans
+            validation côté client.
+          </p>
+        </noscript>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            © <span id="y"></span> GreenKey Golf — Tous droits réservés.
+          </div>
+          <div>
+            <a href="#inscription">Contact</a> · <a href="#faq">FAQ</a> ·
+            <a href="/legal/mentions-legales.html">Mentions légales</a> ·
+            <a href="/legal/cgu.html">CGU</a> ·
+            <a href="/legal/confidentialite.html">Confidentialité</a>
+          </div>
         </div>
       </div>
     </footer>
+
+    <script>
+      // petites aides UX
+      (function () {
+        var y = document.getElementById("y");
+        if (y) y.textContent = new Date().getFullYear();
+      })();
+      function validate(form) {
+        const ok =
+          form.name.value &&
+          form.email.value &&
+          form.freq.value &&
+          form.querySelector("#consent").checked;
+        if (!ok) {
+          alert("Merci de compléter les champs requis.");
+        }
+        return ok;
+      }
+      // Accessibilité/énergie : pause la vidéo si nécessaire
+      (function () {
+        const v = document.getElementById("heroVideo");
+        if (!v) return;
+        const prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        );
+        if (prefersReduced.matches) {
+          v.removeAttribute("autoplay");
+          try {
+            v.pause();
+          } catch (e) {}
+        }
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            try {
+              v.pause();
+            } catch (e) {}
+          } else if (!prefersReduced.matches) {
+            v.play().catch(() => {});
+          }
+        });
+      })();
+    </script>
+    <!-- (optionnel) Plausible analytics -->
+    <!-- <script defer data-domain="votre-domaine.netlify.app" src="https://plausible.io/js/script.js"></script> -->
   </body>
 </html>
